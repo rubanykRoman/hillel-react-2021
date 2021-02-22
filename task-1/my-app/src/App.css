@@ -1,0 +1,11 @@
+header,
+main,
+footer {
+    text-align: center;
+    border: 2px solid black;
+}
+
+main {
+    height: 500px;
+    margin: 2px 0;
+}
