@@ -6,7 +6,7 @@ export default class ContactsTable extends Component {
         return (
             <>
                 <h2>Contacts book</h2>
-                <table>
+                <table cellSpacing="10px">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -16,7 +16,11 @@ export default class ContactsTable extends Component {
                     </thead>
                     <tbody>
                         {this.props.list.map((item) => (
-                            <ContactsRow key={item.id} item={item} onDelete={this.props.onDelete}></ContactsRow>
+                            <ContactsRow
+                                key={item.id}
+                                item={item}
+                                onDelete={this.props.onDelete}
+                            ></ContactsRow>
                         ))}
                     </tbody>
                 </table>

@@ -31,30 +31,32 @@ export default class ContactsAddFormModal extends Component {
 
     render() {
         return (
-            <form className={`modal__wrapper ${this.props.isOpened ? 'open' : 'close'}`} onSubmit={this.onFormSubmit}>
+            <form
+                className={`modal__wrapper ${this.props.isOpened ? 'open' : 'close'}`}
+                onSubmit={this.onFormSubmit}>
                 <div className='modal__body'>
                     <div className='modal__inputs'>
-                    <p>Name:</p>
-                <input
-                    type="text"
-                    name= "name"
-                    value={this.state.contact.name}
-                    onChange={this.onInputChange}    
-                />
-                    <p>Surname:</p>
-                <input
-                    type="text"
-                    name="surname"
-                    value={this.state.contact.surname}
-                    onChange={this.onInputChange}   
-                />
-                    <p>Phone:</p>   
-                <input
-                    type="text"
-                    name="phone"
-                    value={this.state.contact.phone}
-                    onChange={this.onInputChange}    
-                    />
+                        <p>Name:</p>
+                        <input
+                         type="text"
+                        name= "name"
+                        value={this.state.contact.name}
+                        onChange={this.onInputChange}    
+                         />
+                        <p>Surname:</p>
+                         <input
+                        type="text"
+                        name="surname"
+                        value={this.state.contact.surname}
+                        onChange={this.onInputChange}   
+                        />
+                         <p>Phone:</p>   
+                        <input
+                        type="text"
+                        name="phone"
+                        value={this.state.contact.phone}
+                        onChange={this.onInputChange}    
+                        />
                     </div>
                     <div className='modal__btns'>
                         <button className="save" onClick={this.props.toggleModal}>Save</button>

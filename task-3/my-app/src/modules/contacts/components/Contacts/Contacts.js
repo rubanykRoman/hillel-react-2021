@@ -27,12 +27,6 @@ export default class Contacts extends Component {
         });
     };
 
-    // editItem = (id) => {
-    //     this.setState({
-    //         list: this.state.list.find((item) => item.id !== id ? item : ),
-    //     });
-    // };
-
     createItem = (newItem) => {
         fetch(CONTACTS_URL, {
             method: 'POST',
