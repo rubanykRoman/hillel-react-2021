@@ -3,6 +3,7 @@ import { CONTACTS_URL } from '../../constants'
 import ContactsTable from '../ContactsTable'
 import ContactsAddForm from '../ContactsAddFormModal/ContactsAddFormModal'
 import './Contacts.css'
+import {getContacts} from '../../services/'
 
 export default class Contacts extends Component {
 
@@ -12,9 +13,7 @@ export default class Contacts extends Component {
     }
 
     componentDidMount() {
-        fetch(CONTACTS_URL)
-            .then((res) => res.json())
-            .then((list) => this.setState({ list }));
+        getContacts().then((list) => this.setState({ list }));
     }
 
     deleteItem = (id) => {
