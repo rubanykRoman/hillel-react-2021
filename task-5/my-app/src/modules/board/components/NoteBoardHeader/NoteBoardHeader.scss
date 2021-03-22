@@ -1,0 +1,22 @@
+.note-board-header {
+    margin-top: 10px;
+    text-align: center;
+    button {
+        width: 100px;
+        height: 25px;
+        background-color: rgb(39, 180, 39);
+        border-radius: 10px;
+        border: none;
+        font-weight: bold;
+        font-style: italic;
+        color: whitesmoke;
+        border: 1px solid green;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+    button:hover {
+        background-color: rgb(111, 207, 111);
+        color: white;
+        transition: 1s;
+    }
+}
