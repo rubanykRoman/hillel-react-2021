@@ -16,9 +16,10 @@ export default function useNoteBoard() {
     };
 
     function deleteNote(id) {
-        deleteItem(id);
 
-        setList(list.filter((item) => item.id !== id));
+        deleteItem(id).then(() => {
+            setList(list.filter((item) => item.id !== id))
+        });
     };
 
     function updateNote(stiker) {
