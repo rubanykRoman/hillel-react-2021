@@ -1,0 +1,27 @@
+h2 {
+    color: rgb(95, 15, 95);
+    font-style: italic;
+}
+
+th {
+    text-align: left;
+    font-style: italic;
+}
+
+button {
+    background: aqua;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+
+.add-contact,
+.change-theme {
+    margin-top: 20px;
+    background-color: rgb(19, 226, 19);
+    color: white
+}
+
+.change-theme {
+    background-color: rgb(154, 107, 192);
+}
