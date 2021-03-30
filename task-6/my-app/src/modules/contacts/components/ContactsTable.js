@@ -29,7 +29,7 @@ export default function ContactsTable({ list, onDelete, toggleModal }) {
                 </table>
                 <button className="add-contact" onClick={toggleModal}>ADD Contact</button>
                 <button onClick={changeTheme} className="change-theme" > Change theme</button>
-                <p>Current theme: {theme}</p>
+                <p className="current-theme">Current theme: {theme}</p>
             </>
         )
 }

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './App.css';
+import './App.scss';
 import Contacts from './modules/contacts/components/Contacts/Contacts';
 import { themeContext } from './modules/common/contexts/themeContext';
 

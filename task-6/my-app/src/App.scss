@@ -12,6 +12,20 @@ main {
 .dark {
     background: rgb(22, 21, 24);
     color: grey;
+    h2 {
+        color: rgb(177, 20, 20);
+    }
+    p {
+        color: green;
+    }
+    table {
+        button {
+            background-color: blue;
+        }
+    }
+    button {
+        color: rgb(19, 1, 1);
+    }
 }
 
 .light {
