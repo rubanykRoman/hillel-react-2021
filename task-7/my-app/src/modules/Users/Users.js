@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import UsersList from './UsersList';
 import api from './usersApi';
+import useGetData from '../common/hooks/useGetData';
 
 export default function Users() {
 
-    const [list, setList] = useState([])
-
-    useEffect(() => {
-        api.get().then(({ data }) => setList(data));
-    }, []);
+    const { list } = useGetData(api);
 
     return (
         <UsersList list={list}></UsersList>

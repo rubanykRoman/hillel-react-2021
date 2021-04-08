@@ -1,5 +1,5 @@
-import React from 'react'
-import UsersListItem from './UsersListItem'
+import React from 'react';
+import UsersListItem from './UsersListItem';
 
 export default function UsersList({list}) {
     return (

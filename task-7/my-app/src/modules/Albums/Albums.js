@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import AlbumsList from './AlbumsList'
+import React from 'react';
+import AlbumsList from './AlbumsList';
 import api from './albumsApi';
+import useGetData from '../common/hooks/useGetData';
 
 export default function Albums() {
 
-    const [list, setList] = useState([])
-
-    useEffect(() => {
-        api.get().then(({ data }) => setList(data));
-    }, []);
+    const { list } = useGetData(api);
 
     return (
         <div>

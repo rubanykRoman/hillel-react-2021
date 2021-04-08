@@ -1,5 +1,5 @@
-import React from 'react'
-import AlbumsListItem from './AlbumsListItem'
+import React from 'react';
+import AlbumsListItem from './AlbumsListItem';
 
 export default function UsersList({ list }) {
 
