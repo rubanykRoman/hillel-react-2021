@@ -4,7 +4,6 @@ import api from '../../../api';
 export default function useContacts() {
     
     const [list, setList] = useState([])
-    const [modal, setModal] = useState(false)
 
     useEffect(() => {
         api.get().then(({ data }) => setList(data));
@@ -23,15 +22,9 @@ export default function useContacts() {
         );
     }
 
-    function toggleModal() {
-        setModal(!modal)
-    }
-
     return {
         list,
-        modal,
         deleteItem,
         createItem,
-        toggleModal,
     };
 }
