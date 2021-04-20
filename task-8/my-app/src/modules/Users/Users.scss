@@ -1,0 +1,24 @@
+.users {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    button {
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+    li {
+        text-align: left;
+    }
+}
+
+.modal-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    button {
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+}
