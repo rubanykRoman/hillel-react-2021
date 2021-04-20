@@ -54,7 +54,7 @@ export default function ModalPage({toggleModal, createItem, curContact, setCurCo
                     />
             </div>
             <div className="buttons">
-                <Button onClick={onFormSubmit} size="small" variant="outlined" color="primary">
+                <Button type="submit" size="small" variant="outlined" color="primary">
                     Save
                 </Button>
                 <Button onClick={onCancelClick} size="small" variant="outlined" color="secondary">
