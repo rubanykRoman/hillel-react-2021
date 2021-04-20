@@ -13,7 +13,7 @@ export default function ModalPage({toggleModal, createItem, curContact, setCurCo
         } else {
             createItem(contact);
         }
-        setCurContact({ name: '', surname: '', phone: '', });
+        setCurContact({ name: '', email: '', phone: '', });
         toggleModal();
     }
 
@@ -24,7 +24,7 @@ export default function ModalPage({toggleModal, createItem, curContact, setCurCo
     function onCancelClick(e) {
         e.preventDefault();
 
-        setCurContact({name: '', surname: '', phone: '',});
+        setCurContact({name: '', email: '', phone: '',});
         toggleModal();
     }
 
