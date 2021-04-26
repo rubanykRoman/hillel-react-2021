@@ -3,8 +3,8 @@ import UsersList from './UsersList';
 import api from './usersApi';
 import ModalPage from './ModalPage';
 import useModal from '../common/hooks/useModal';
-import './Users.scss';
 import useGetCrud from '../common/hooks/useGetCrud';
+import { Box } from '@material-ui/core';
 
 export default function Users() {
 
@@ -12,24 +12,23 @@ export default function Users() {
     const { modal, toggleModal, contact, setContact } = useModal();
 
     return (
-        <div className="users">
+        <Box my={5} display="flex" flexDirection="column" justifyContent="center" alignItems="center"> 
             {modal ?
-                <ModalPage
-                    // className="modal-page"
-                    toggleModal={toggleModal}
-                    createItem={createItem}
-                    curContact={contact}
-                    setCurContact={setContact}
-                    updateItem={updateItem}>
-                </ModalPage>
-                :
-                <UsersList
-                    list={list}
-                    deleteItem={deleteItem}
-                    toggleModal={toggleModal}
-                    updateItem={updateItem}
-                    setContact={setContact}>
+            <ModalPage
+                toggleModal={toggleModal}
+                createItem={createItem}
+                curContact={contact}
+                setCurContact={setContact}
+                updateItem={updateItem}>
+            </ModalPage>
+            :
+            <UsersList
+                list={list}
+                deleteItem={deleteItem}
+                toggleModal={toggleModal}
+                updateItem={updateItem}
+                setContact={setContact}>
                 </UsersList>}
-        </div>
+        </Box> 
     )
 }
