@@ -46,8 +46,4 @@ function Form({ dispatch }) {
     )
 }
 
-function mapsStateToProps(state) {
-    return { todos: state.list };
-}
-
-export default connect(mapsStateToProps)(Form);
+export default connect()(Form);

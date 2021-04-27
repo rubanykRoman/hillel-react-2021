@@ -33,8 +33,4 @@ function ListItem({ todo, dispatch }) {
     )
 }
 
-function mapsStateToProps(state) {
-    return { todos: state.list };
-}
-
-export default connect(mapsStateToProps)(ListItem);
+export default connect()(ListItem);
