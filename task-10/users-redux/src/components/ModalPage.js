@@ -8,19 +8,32 @@ import {
     InputLabel,
 } from '@material-ui/core';
 
-export default function ModalPage({toggleModal, createItem, curContact, setCurContact, updateItem}) {
+export default function ModalPage({
+    toggleModal,
+    curContact,
+    getCurContact,
+    addContact,
+    updateContact}) {
 
-    const [contact, setContact] = useState({...curContact})
+    const initialState = {
+        name: '',
+        surname: '',
+        phone: '',
+        email: '',
+    }
+    
+    const [contact, setContact] = useState(curContact)
     
     function onFormSubmit(e) {
         e.preventDefault();
-        
+
         if (contact.id) {
-            updateItem(contact)
+            updateContact(contact)
         } else {
-            createItem(contact);
-        }
-        setCurContact({ name: '', email: '', phone: '', });
+            addContact(contact)
+        };
+
+        getCurContact(initialState);
         toggleModal();
     }
 
@@ -31,7 +44,7 @@ export default function ModalPage({toggleModal, createItem, curContact, setCurCo
     function onCancelClick(e) {
         e.preventDefault();
 
-        setCurContact({name: '', email: '', phone: '',});
+        getCurContact(initialState);
         toggleModal();
     }
 
@@ -49,20 +62,28 @@ export default function ModalPage({toggleModal, createItem, curContact, setCurCo
                                 onChange={onInputChange}/>
                         </FormControl>
                         <FormControl >
+                            <InputLabel htmlFor="surname">Surname</InputLabel>
+                            <Input
+                                id="surname"
+                                name="surname"
+                                value={contact.surname}
+                                onChange={onInputChange} />
+                        </FormControl>
+                        <FormControl >
+                            <InputLabel htmlFor="phone">Phone</InputLabel>
+                            <Input
+                                id="phone"
+                                name="phone"
+                                value={contact.phone}
+                                onChange={onInputChange} />
+                        </FormControl>
+                        <FormControl >
                             <InputLabel htmlFor="email">Email</InputLabel>
                             <Input
                                 id="email"
                                 name="email"
                                 value={contact.email}
                                 onChange={onInputChange}/>
-                        </FormControl>
-                        <FormControl >
-                            <InputLabel htmlFor="phone">Phone:</InputLabel>
-                            <Input
-                                id="phone"
-                                name="phone"
-                                value={contact.phone}
-                                onChange={onInputChange} />
                         </FormControl>
                     </Box>
                     <Box my={4} display="flex" justifyContent="space-between" alignItems="center">
