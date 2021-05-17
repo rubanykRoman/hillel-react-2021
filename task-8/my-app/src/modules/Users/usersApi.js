@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { API_URL } from '../../constants';
 
 export default axios.create({
-    baseURL: 'https://5dd3d5ba8b5e080014dc4bfa.mockapi.io/users/',
+    baseURL: API_URL,
     headers: {
         'Content-Type': 'application/json',
     },

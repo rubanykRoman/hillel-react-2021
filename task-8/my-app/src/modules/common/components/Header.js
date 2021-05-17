@@ -7,16 +7,19 @@ export default function Header() {
         <AppBar position="static">
             <Box display="flex" justifyContent="center" alignItems="center">
                 <Toolbar>
-                    <Link to="/" component={Button} color="inherit">
+                    <Link to="/dashboard"
+                        component={Button}
+                        color="inherit">
                         Dashboard
                     </Link>
-                    <Link to="/users" component={Button} color="inherit">
+                    <Link to="/users"
+                        component={Button}
+                        color="inherit">
                         Users
                     </Link>
-                    <Link to="/users/edit" component={Button} color="inherit">
-                        Edit User
-                    </Link>
-                    <Link to="/albums"  component={Button} color="inherit">
+                    <Link to="/albums"
+                        component={Button}
+                        color="inherit">
                         Albums
                     </Link>
                 </Toolbar>

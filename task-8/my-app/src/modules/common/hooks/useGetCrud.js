@@ -35,6 +35,6 @@ export default function useGetCrud(api) {
         list,
         deleteItem,
         createItem,
-        updateItem
+        updateItem,
     }
 }

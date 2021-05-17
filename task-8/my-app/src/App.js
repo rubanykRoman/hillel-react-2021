@@ -1,11 +1,10 @@
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import Dashboard from "./modules/Dashboard/Dashboard";
-import Users from "./modules/Users/Users";
 import Albums from "./modules/Albums/Albums";
-import Header from './modules/Header/Header';
-import ModalPage from './modules/Users/ModalPage';
+import Header from './modules/common/components/Header';
 import { Container } from '@material-ui/core';
+import Users from './modules/Users/components/Users';
 
 
 function App() {
@@ -14,10 +13,12 @@ function App() {
       <Router>
         <Header></Header>
         <Switch>
-          <Route path="/" exact component={Dashboard}></Route>
-          <Route path="/users/edit" component={ModalPage}></Route>
+          <Route path="/dashboard" component={Dashboard}></Route>
           <Route path="/users" component={Users}></Route>
           <Route path="/albums" component={Albums}></Route>
+          <Route path="/" exact>
+            <Redirect to="/dashboard" />
+          </Route>
         </Switch>
       </Router>
     </Container> 
