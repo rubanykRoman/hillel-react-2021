@@ -21,13 +21,13 @@ export const toggleTodo = (id) => {
         const updatedTodo = { ...todo, isDone: !todo.isDone };
         api.put(id, updatedTodo);
 
-        dispatch(updateTodo(updatedTodo));
+        dispatch(updateTodos(updatedTodo));
     };
 };
 
-export const TODOS_UPDATE_TODO = 'TODOS_UPDATE_TODO';
-export const updateTodo = (payload) => ({
-    type: TODOS_UPDATE_TODO,
+export const TODOS_UPDATE_TODOS = 'TODOS_UPDATE_TODOS';
+export const updateTodos = (payload) => ({
+    type: TODOS_UPDATE_TODOS,
     payload,
 });
 

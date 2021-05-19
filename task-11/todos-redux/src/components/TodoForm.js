@@ -20,7 +20,7 @@ const initialState = {
         isDone: false,
     }
 
-    const options = [
+const options = [
         { value: false, label: "Not completed" },
         { value: true, label: "Completed" }
     ];
@@ -37,8 +37,8 @@ function TodoForm({ addTodo }) {
 
     const onSubmit = async (todo) => {
         await addTodo(todo);
-
-        closeForm()
+        console.log(todo);
+        closeForm();
     };
 
     function onFormCancel() {

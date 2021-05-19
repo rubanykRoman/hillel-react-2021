@@ -4,10 +4,10 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 export default function TodoListItem({ todo,toggleTodo,removeTodo}) {
 
-    function getItemStyle({ isDone}) {
+    function getItemStyle(isDone) {
         return {
             cursor: 'pointer',
-            backgroundColor: isDone ? 'green' : 'yellow',
+            backgroundColor: isDone === false || isDone === "false" ? 'yellow' : 'green',
         };
     }
     
@@ -22,7 +22,7 @@ export default function TodoListItem({ todo,toggleTodo,removeTodo}) {
 
     return (
         <>
-            <ListItem onClick={() => onItemClick(todo.id)} style={getItemStyle(todo)}>
+            <ListItem onClick={() => onItemClick(todo.id)} style={getItemStyle(todo.isDone)}>
                 <Box display="flex" alignItems="center">
                     {todo.title}
                     <IconButton onClick={(e) => handleDeleteTodo(todo.id,e)} aria-label="delete" color="secondary" size="small">

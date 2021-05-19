@@ -1,6 +1,6 @@
 import {
     TODOS_GET_TODOS,
-    TODOS_UPDATE_TODO,
+    TODOS_UPDATE_TODOS,
     TODOS_TOGGLE_TODO,
     TODOS_REMOVE_TODO,
     TODOS_ADD_TODO,
@@ -17,7 +17,7 @@ export default function reducer(state = INITIAL_STATE, { type, payload }) {
                 ...state,
                 list: payload,
             };
-        case TODOS_UPDATE_TODO:
+        case TODOS_UPDATE_TODOS:
             return {
                 list: state.list.map((todo) =>
                 todo.id !== payload.id ? todo : payload
