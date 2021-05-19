@@ -1,7 +1,7 @@
 import React from 'react';
 import FormikTextField from './FormikTextField';
 
-export default function FormikSelect({options,...props}) {
+export default function FormikSelect({ options, ...props }) {
 
     return (
         <FormikTextField
@@ -12,7 +12,7 @@ export default function FormikSelect({options,...props}) {
             }}
         >
             {options.map((opt) => (
-                <option key={opt.label}value={opt.value}>
+                <option key={opt.value}value={opt.value}>
                     {opt.label}
                 </option>
             ))}

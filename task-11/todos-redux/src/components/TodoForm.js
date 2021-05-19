@@ -15,17 +15,17 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import SaveIcon from '@material-ui/icons/Save';
 import FormikSelect from '../common/components/form/FormikSelect';
 
-function TodoForm({ addTodo }) {
-    
-    const initialState = {
+const initialState = {
         title: '',
         isDone: false,
     }
 
     const options = [
-        { value: true, label: "Completed" },
-        { value: false, label: "Not completed" }
+        { value: false, label: "Not completed" },
+        { value: true, label: "Completed" }
     ];
+
+function TodoForm({ addTodo }) {
 
     const [todo, setTodo] = useState(initialState)
     const history = useHistory();

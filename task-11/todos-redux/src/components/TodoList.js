@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
-import { Box } from '@material-ui/core';
-import ListItem from './ListItem';
+import { Box, List } from '@material-ui/core';
+import TodoListItem from './TodoListItem';
 import { getTodos, removeTodo, toggleTodo } from '../store/actions/actions';
 import { Link } from 'react-router-dom';
 import {Button} from '@material-ui/core';
 
-function List({ todos, getTodos, removeTodo, toggleTodo }) {
+function TodoList({ todos, getTodos, removeTodo, toggleTodo }) {
 
     useEffect(() => {
         getTodos();
@@ -15,19 +15,19 @@ function List({ todos, getTodos, removeTodo, toggleTodo }) {
     return (
         <Box display="flex" flexDirection="column" alignItems="center">
             <h2>Todo list</h2>
-            <Box m={3}>
-                <Link to='/form' component={Button} color="primary" variant="contained">Add todo</Link>
-            </Box>
-            <ul>
+            <List>
                 {todos.map((todo) => (
-                    <ListItem
+                    <TodoListItem
                         key={todo.id}
                         todo={todo}
                         removeTodo={removeTodo}
                         toggleTodo={toggleTodo}
                         />
                 ))}
-            </ul>
+            </List>
+            <Box m={2}>
+                <Link to='/form' component={Button} color="primary" variant="contained">Add todo</Link>
+            </Box>
         </Box>
     );
 }
@@ -42,4 +42,4 @@ const mapDispatchToProps = {
     toggleTodo
 };
 
-export default connect(mapsStateToProps,mapDispatchToProps)(List);
+export default connect(mapsStateToProps,mapDispatchToProps)(TodoList);

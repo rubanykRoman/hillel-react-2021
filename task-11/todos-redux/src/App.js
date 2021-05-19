@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux';
-import List from './components/List';
+import TodoList from './components/TodoList';
 import store from './store/index';
 import { Container } from '@material-ui/core';
 import TodoForm from './components/TodoForm';
@@ -11,7 +11,7 @@ function App() {
             <Router>
                 <Switch>
                     <Provider store={store}>
-                        <Route path="/todos" exact component={List}></Route>
+                        <Route path="/todos" exact component={TodoList}></Route>
                         <Route path="/form" component={TodoForm} />
                         <Route path="/" exact>
                             <Redirect to="/todos" />
