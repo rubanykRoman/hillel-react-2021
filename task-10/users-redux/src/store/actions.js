@@ -24,29 +24,77 @@ export function removeUser(payload) {
     };
 }
 
+// export const USERS_ADD_CONTACT = 'USERS_ADD_CONTACT';
+// export function addContact(contact) {
+//     return function (dispatch) {
+//         api.post('', contact).then(({ data }) => {
+//             dispatch(({
+//                 type: USERS_ADD_CONTACT,
+//                 payload: data,
+//             }));
+//         });
+//     }
+// }
+
+// export const USERS_UPDATE_CONTACT = 'USERS_UPDATE_CONTACT';
+// export function updateContact(contact) {
+//     return function (dispatch) {
+//         api.put(contact.id, contact).then(() => {
+//             dispatch(({
+//                 type: USERS_UPDATE_CONTACT,
+//                 payload: contact,
+//             }))
+//         })
+//     }
+// }
+
 export const USERS_ADD_CONTACT = 'USERS_ADD_CONTACT';
-export function addContact(contact) {
-    return function (dispatch) {
-        api.post('', contact).then(({ data }) => {
-            dispatch(({
-                type: USERS_ADD_CONTACT,
-                payload: data,
-            }));
-        });
-    }
+const addContact = (contact, dispatch) => {
+    const { data } = await api.post('', contact);
+    dispatch({
+        type: USERS_ADD_CONTACT,
+        payload: data,
+    });
+    return data;
 }
 
 export const USERS_UPDATE_CONTACT = 'USERS_UPDATE_CONTACT';
-export function updateContact(contact) {
-    return function (dispatch) {
-        api.put(contact.id, contact).then(() => {
-            dispatch(({
-                type: USERS_UPDATE_CONTACT,
-                payload: contact,
-            }))
+const updateContact = async (contact, dispatch) => {
+    const { data } = await api.put(contact.id, contact);
+        dispatch({
+            type: USERS_UPDATE_CONTACT,
+            payload: data,
         })
-    }
+    return data;
 }
+export const saveContact = (contact) => (dispatch) => {
+    return contact.id
+        ? updateContact(contact, dispatch)
+        : addContact(contact, dispatch);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const USERS_MODAL_TOGGLE = 'USERS_MODAL_TOGGLE';
 export const toggleModal = () => ({

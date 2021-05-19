@@ -11,14 +11,14 @@ function App() {
   return (
     <Container maxWidth="lg">
       <Router>
-        {/* <Header></Header> */}
+        <Header></Header>
         <Switch>
           <Provider store={store}>
+            <Route path="/users/edit" exact component={ModalPage}></Route>
             <Route path="/users" exact component={Users}></Route>
-            <Route path="/form/:id" component={ModalPage} />
-            {/* <Route path="/form/*">
-              <Redirect to="/form/new" />
-            </Route> */}
+            <Route path="/" exact>
+              <Redirect to="/users"/>
+            </Route>
           </Provider>
         </Switch>
       </Router>

@@ -9,6 +9,13 @@ import {
 
 const initialState = {
     list: [],
+    modal: false,
+    contact: {
+        name: '',
+        surname: '',
+        phone: '',
+        email: '',
+    }
 };
 
 export default function todosReducer(state = initialState, { type, payload }) {
