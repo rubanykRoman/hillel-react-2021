@@ -67,13 +67,13 @@ function TodoForm({ addTodo }) {
                             validate={validate}>
                             <Form>
                                 <Grid container spacing={3} align="center">
-                                    <Grid item xs={12} md={6}>
+                                    <Grid item xs={12} md={12}>
                                         <FormikTextField
                                             name="title"
                                             label="Title"
                                             />
                                         </Grid>
-                                        <Grid item xs={12} md={6}>
+                                        <Grid item xs={12} md={12}>
                                             <FormikSelect
                                                 name="isDone"
                                                 label="Status"

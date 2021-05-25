@@ -2,15 +2,15 @@ import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 import { Box, List } from '@material-ui/core';
 import TodoListItem from './TodoListItem';
-import { getTodos, removeTodo, toggleTodo } from '../store/actions/actions';
+import { setTodos, removeTodo, toggleTodo } from '../store/actions/actions';
 import { Link } from 'react-router-dom';
 import {Button} from '@material-ui/core';
 
-function TodoList({ todos, getTodos, removeTodo, toggleTodo }) {
+function TodoList({ todos, setTodos, removeTodo, toggleTodo }) {
 
     useEffect(() => {
-        getTodos();
-    }, [getTodos]);
+        setTodos();
+    }, [setTodos]);
 
     return (
         <Box display="flex" flexDirection="column" alignItems="center">
@@ -37,7 +37,7 @@ function mapsStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-    getTodos,
+    setTodos,
     removeTodo,
     toggleTodo
 };

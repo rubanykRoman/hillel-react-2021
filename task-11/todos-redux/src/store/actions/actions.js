@@ -1,11 +1,11 @@
 import api from '../../api';
 
-export const TODOS_GET_TODOS = 'TODOS_GET_TODOS';
-export function getTodos() {
+export const TODOS_SET_TODOS = 'TODOS_SET_TODOS';
+export function setTodos() {
     return function (dispatch) {
         api.get().then(({ data }) => {
             dispatch(({
-                type: TODOS_GET_TODOS,
+                type: TODOS_SET_TODOS,
                 payload: data,
             }));
         });

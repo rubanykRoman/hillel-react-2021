@@ -1,5 +1,5 @@
 import {
-    TODOS_GET_TODOS,
+    TODOS_SET_TODOS,
     TODOS_UPDATE_TODOS,
     TODOS_TOGGLE_TODO,
     TODOS_REMOVE_TODO,
@@ -12,7 +12,7 @@ const INITIAL_STATE = {
 
 export default function reducer(state = INITIAL_STATE, { type, payload }) {
     switch (type) {
-        case TODOS_GET_TODOS:
+        case TODOS_SET_TODOS:
             return {
                 ...state,
                 list: payload,
