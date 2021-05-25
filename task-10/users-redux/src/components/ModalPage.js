@@ -22,18 +22,8 @@ export default function ModalPage({
     }
     
     const [contact, setContact] = useState(curContact)
-    
-    function onFormSubmit(e) {
-        e.preventDefault();
 
-        saveContact(contact);
-
-        // if (contact.id) {
-        //     updateContact(contact)
-        // } else {
-        //     addContact(contact)
-        // };
-
+    function closeForm() {
         setCurContact(initialState);
         toggleModal();
     }
@@ -42,11 +32,18 @@ export default function ModalPage({
         setContact({...contact, [e.target.name]: e.target.value })
     }
     
+    function onFormSubmit(e) {
+        e.preventDefault();
+
+        saveContact(contact);
+
+        closeForm()
+    }
+    
     function onCancelClick(e) {
         e.preventDefault();
 
-        setCurContact(initialState);
-        toggleModal();
+        closeForm()
     }
 
     return (
