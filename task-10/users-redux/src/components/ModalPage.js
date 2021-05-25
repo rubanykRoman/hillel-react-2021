@@ -7,15 +7,12 @@ import {
     Input,
     InputLabel,
 } from '@material-ui/core';
-import { useHistory, withRouter } from 'react-router-dom';
-import { removeUser, saveContact } from '../store/actions';
-import { connect } from 'react-redux';
 
-function ModalPage({
+export default function ModalPage({
+    toggleModal,
     curContact,
-    removeUser,
-    saveContact
-    }) {
+    setCurContact,
+    saveContact}) {
 
     const initialState = {
         name: '',
@@ -25,35 +22,31 @@ function ModalPage({
     }
     
     const [contact, setContact] = useState(curContact)
-    const history = useHistory();
-
-    // const onSubmit = async (contact) => {
-    //     const { id } = await saveContact(contact);
-
-    //     history.push(`/form/${id}`);
-    // };
     
-    async function onFormSubmit(e) {
+    function onFormSubmit(e) {
         e.preventDefault();
+
+        saveContact(contact);
 
         // if (contact.id) {
         //     updateContact(contact)
         // } else {
         //     addContact(contact)
-        // }
+        // };
 
-        const { id } = await saveContact(contact);
-        history.push(`/form/${id}`);
+        setCurContact(initialState);
+        toggleModal();
     }
-
-    // const onSubmit = async (contact) => {
-    //     const { id } = await saveContact(contact);
-
-    //     history.push(`/form/${id}`);
-    // };
 
     function onInputChange(e) {
         setContact({...contact, [e.target.name]: e.target.value })
+    }
+    
+    function onCancelClick(e) {
+        e.preventDefault();
+
+        setCurContact(initialState);
+        toggleModal();
     }
 
     return (
@@ -98,8 +91,8 @@ function ModalPage({
                         <Button type="submit" size="small" variant="outlined" color="primary">
                             Save
                         </Button>
-                        <Button onClick={removeUser} size="small" variant="outlined" color="secondary">
-                            Delete
+                        <Button onClick={onCancelClick} size="small" variant="outlined" color="secondary">
+                            Cancel
                         </Button>
                     </Box>
                 </form>
@@ -107,25 +100,3 @@ function ModalPage({
         </Container>
     )
 }
-
-const mapStateToProps = ({ list }, { match: { params } }) => {
-    let curContact = list.find((el) => el.id === params.id);
-
-    curContact = curContact || {
-        name: '',
-        surname: '',
-        phone: '',
-        email: '',
-    };
-
-    return { curContact };
-};
-
-const mapDispatchToProps = {
-    removeUser,
-    saveContact
-};
-
-export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps)(ModalPage)
-);

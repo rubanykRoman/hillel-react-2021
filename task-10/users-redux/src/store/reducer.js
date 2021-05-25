@@ -1,7 +1,7 @@
 import {
     USERS_REMOVE_CONTACT,
     USERS_MODAL_TOGGLE,
-    USERS_GET_CONTACTS,
+    USERS_SET_CONTACTS,
     USERS_ADD_CONTACT,
     USERS_CURRENT_CONTACT,
     USERS_UPDATE_CONTACT
@@ -9,12 +9,19 @@ import {
 
 const initialState = {
     list: [],
+    modal: false,
+    contact: {
+        name: '',
+        surname: '',
+        phone: '',
+        email: '',
+    }
 };
 
 export default function todosReducer(state = initialState, { type, payload }) {
     switch (type) {
 
-        case USERS_GET_CONTACTS:
+        case USERS_SET_CONTACTS:
             return {
                 ...state,
                 list: payload,

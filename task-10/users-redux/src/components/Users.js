@@ -1,27 +1,23 @@
 import React, {useEffect} from 'react';
 import { connect } from 'react-redux';
 import UserTableRow from './UserTableRow';
-import { removeUser,toggleModal,addContact,getCurContact,updateContact,getUsers} from '../store/actions';
+import { removeUser, toggleModal, saveContact, setCurContact, setUsers} from '../store/actions';
 import { Box, Button } from '@material-ui/core';
 import ModalPage from './ModalPage';
-import { Switch, Route, useRouteMatch } from 'react-router';
 
 function Users({
     list,
     removeUser,
     modal,
     toggleModal,
-    addContact,
+    saveContact,
     contact,
-    getCurContact,
-    updateContact,
-    getUsers }) {
-    
-    const { path } = useRouteMatch();
+    setCurContact,
+    setUsers }) {
 
     useEffect(() => {
-        getUsers();
-    }, [getUsers]);
+        setUsers();
+    }, [setUsers]);
 
 
     return (
@@ -31,10 +27,9 @@ function Users({
             {modal ?
                 <ModalPage
                     toggleModal={toggleModal}
-                    addContact={ addContact}
+                    saveContact={saveContact}
                     curContact={contact}
-                    getCurContact={getCurContact}
-                    updateContact={updateContact}
+                    setCurContact={setCurContact}
                 >
                 </ModalPage>
                 :
@@ -60,7 +55,7 @@ function Users({
                                     item={item}
                                     removeUser={removeUser}
                                     toggleModal={toggleModal}
-                                    getCurContact={getCurContact}
+                                    setCurContact={setCurContact}
                                 >
                                 </UserTableRow>
                             ))}
@@ -83,10 +78,9 @@ function mapsStateToProps(state) {
 const mapDispatchToProps = {
     removeUser,
     toggleModal,
-    addContact,
-    getCurContact,
-    updateContact,
-    getUsers,
+    saveContact,
+    setCurContact,
+    setUsers,
 };
 
 export default connect(mapsStateToProps, mapDispatchToProps)(Users);
